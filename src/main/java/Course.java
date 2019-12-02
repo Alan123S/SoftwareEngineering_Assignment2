@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.joda.time.DateTime;
 
@@ -9,6 +10,14 @@ public class Course {
 	private List<Module> modules = new ArrayList<Module>();
 	private DateTime startDate = new DateTime();
 	private DateTime endDate = new DateTime();
+	
+	public Course(String name, List<Student> students, List<Module> modules, DateTime start, DateTime end) {
+		this.name = name;
+		this.students = students;
+		this.modules = modules;
+		this.startDate = start;
+		this.endDate = end;
+	}
 	
 	public void setName(String newName) {
 		this.name = newName;
