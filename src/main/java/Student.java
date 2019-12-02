@@ -11,6 +11,15 @@ public class Student {
 	private List<Course> courses = new ArrayList<Course>();
 	private List<Module> modules = new ArrayList<Module>();
 	
+	public Student(String name, int age, int id, Date dob, List<Course> courses, List<Module> modules) {
+		this.name = name;
+		this.age = age;
+		this.iD = id;
+		this.dateOfBirth = dob;
+		this.courses = courses;
+		this.modules = modules;
+	}
+	
 	public String getName() {
 		return name;
 	}
