@@ -1,12 +1,21 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import org.joda.time.DateTime;
+
 public class Module {
 
 	private String name = "";
-	private int id;
+	private int iD;
 	private List<Student> students = new ArrayList<Student>();
 	private List<Course> courses = new ArrayList<Course>();
+	
+	public Module(String name, int id, List<Student> students, List<Course> courses) {
+		this.name = name;
+		this.iD = id;
+		this.students = students;
+		this.courses = courses;
+	}
 	
 	public String getName() {
 		return name;
@@ -17,11 +26,11 @@ public class Module {
 	}
 	
 	public void setId(int newId) {
-		this.id = newId;
+		this.iD = newId;
 	}
 	
 	public int getId() {
-		return this.id;
+		return this.iD;
 	}
 	
 	public void addStudent(Student newStudent) {
