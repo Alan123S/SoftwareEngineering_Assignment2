@@ -1,77 +1,107 @@
 import static org.junit.Assert.*;
+import java.util.ArrayList;
+import java.util.Date;
 
+import org.joda.time.DateTime;
+import org.junit.*;
 import org.junit.Test;
 
 public class StudentTest {
 
+	Student student;
+	String name = "newName";
+	Module newModule = new Module("modName", 10101, new ArrayList<Student>(), new ArrayList<Course>());
+	Course newCourse = new Course("courseName", new ArrayList<Student>(), new ArrayList<Module>(), new DateTime(), new DateTime());
+	Date newDOB = new Date();
+	
+	@Before
+	public void setup() throws Exception {
+		student = new Student("defaultName", 10, 11111, new Date(), new ArrayList<Course>(), new ArrayList<Module>());
+	}
+	
+	@After
+	public void tearDown() throws Exception {
+		student = null;
+		assertEquals(null, student);
+	}
+	
 	@Test
 	public void testStudent() {
-		fail("Not yet implemented");
+		assertNotEquals(null, student);
 	}
 
 	@Test
 	public void testGetName() {
-		fail("Not yet implemented");
+		assertEquals("defaultName" , student.getName());
 	}
 
 	@Test
 	public void testSetName() {
-		fail("Not yet implemented");
+		student.setName(this.name);
+		assertEquals(this.name, student.getName());
 	}
 
 	@Test
 	public void testGetAge() {
-		fail("Not yet implemented");
+		assertEquals(10, student.getAge());
 	}
 
 	@Test
 	public void testSetAge() {
-		fail("Not yet implemented");
+		student.setAge(15);
+		assertEquals(15, student.getAge());
 	}
 
 	@Test
 	public void testGetId() {
-		fail("Not yet implemented");
+		assertEquals(11111, student.getId());
 	}
 
 	@Test
 	public void testSetId() {
-		fail("Not yet implemented");
+		student.setId(100);
+		assertEquals(100, student.getId());
 	}
 
 	@Test
 	public void testGetDateOfBirth() {
-		fail("Not yet implemented");
+		student.setDateOfBirth(newDOB);
+		assertEquals(newDOB, student.getDateOfBirth());
 	}
 
 	@Test
 	public void testSetDateOfBirth() {
-		fail("Not yet implemented");
+		student.setDateOfBirth(newDOB);
+		assertEquals(newDOB, student.getDateOfBirth());
 	}
 
 	@Test
 	public void testGetUsername() {
-		fail("Not yet implemented");
+		assertEquals("defaultName10", student.getUsername());
 	}
 
 	@Test
 	public void testAddCourse() {
-		fail("Not yet implemented");
+		student.addCourse(newCourse);
+		assertEquals(newCourse, student.getCourses().get(0));
 	}
 
 	@Test
 	public void testGetCourses() {
-		fail("Not yet implemented");
+		student.addCourse(newCourse);
+		assertEquals(newCourse, student.getCourses().get(0));
 	}
 
 	@Test
 	public void testAddModule() {
-		fail("Not yet implemented");
+		student.addModule(newModule);
+		assertEquals(newModule, student.getModules().get(0));
 	}
 
 	@Test
 	public void testGetModules() {
-		fail("Not yet implemented");
+		student.addModule(newModule);
+		assertEquals(newModule, student.getModules().get(0));
 	}
 
 }

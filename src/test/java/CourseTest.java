@@ -15,9 +15,19 @@ public class CourseTest {
 	DateTime newStartTime = new DateTime();
 	DateTime newEndTime = new DateTime();
 	
+	@Before
+	public void setup() throws Exception {
+		course = new Course("defaultName", new ArrayList<Student>(), new ArrayList<Module>(), new DateTime(), new DateTime());
+	}
+	
+	@After
+	public void tearDown() throws Exception {
+		course = null;
+		assertEquals(null, course);
+	}
+	
 	@Test
 	public void testCourse() {
-		course = new Course("defaultName", new ArrayList<Student>(), new ArrayList<Module>(), new DateTime(), new DateTime());
 		assertNotEquals(null, course);
 	}
 
