@@ -1,61 +1,87 @@
 import static org.junit.Assert.*;
 import org.junit.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.joda.time.DateTime;
 
 public class CourseTest {
-
+	
+	Course course;
+	String name = "newName";
+	Student newStudent = new Student("studName", 10, 1111, new Date(), new ArrayList<Course>(), new ArrayList<Module>());
+	Module newModule = new Module("modName", 10101, new ArrayList<Student>(), new ArrayList<Course>());
+	DateTime newStartTime = new DateTime();
+	DateTime newEndTime = new DateTime();
+	
 	@Test
 	public void testCourse() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetName() {
-		fail("Not yet implemented");
+		course = new Course("defaultName", new ArrayList<Student>(), new ArrayList<Module>(), new DateTime(), new DateTime());
+		assertNotEquals(null, course);
 	}
 
 	@Test
 	public void testGetName() {
-		fail("Not yet implemented");
+		assertEquals("defaultName" ,course.getName());
+	}
+	
+	@Test
+	public void testSetName() {
+		course.setName(this.name);
+		assertEquals(this.name, course.getName());
 	}
 
 	@Test
 	public void testAddStudent() {
-		fail("Not yet implemented");
+		course.addStudent(newStudent);
+		assertEquals(newStudent, course.getStudents().get(0));
 	}
 
 	@Test
 	public void testGetStudents() {
-		fail("Not yet implemented");
+		List<Student> students = new ArrayList<Student>();
+		students.add(newStudent);
+		course.addStudent(newStudent);
+		assertEquals(students, course.getStudents());
 	}
 
 	@Test
 	public void testAddModule() {
-		fail("Not yet implemented");
+		course.addModule(newModule);
+		assertEquals(newModule, course.getModules().get(0));
 	}
 
 	@Test
 	public void testGetModules() {
-		fail("Not yet implemented");
+		List<Module> modules = new ArrayList<Module>();
+		modules.add(newModule);
+		course.addModule(newModule);
+		assertEquals(modules, course.getModules());
 	}
 
 	@Test
 	public void testSetStartDate() {
-		fail("Not yet implemented");
+		course.setStartDate(newStartTime);
+		assertEquals(newStartTime, course.getStartDate());
 	}
 
 	@Test
 	public void testGetStartDate() {
-		fail("Not yet implemented");
+		course.setStartDate(newStartTime);
+		assertEquals(newStartTime, course.getStartDate());
 	}
 
 	@Test
 	public void testSetEndDate() {
-		fail("Not yet implemented");
+		course.setEndDate(newEndTime);
+		assertEquals(newEndTime, course.getEndDate());
 	}
 
 	@Test
 	public void testGetEndDate() {
-		fail("Not yet implemented");
+		course.setEndDate(newEndTime);
+		assertEquals(newEndTime, course.getEndDate());
 	}
 
 }
