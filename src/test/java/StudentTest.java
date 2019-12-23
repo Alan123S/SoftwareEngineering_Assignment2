@@ -77,7 +77,7 @@ public class StudentTest {
 
 	@Test
 	public void testGetUsername() {
-		assertEquals("defaultName10", student.getUsername());
+		assertEquals("defaultName11111", student.getUsername());
 	}
 
 	@Test

@@ -53,7 +53,7 @@ public class Student {
 	}
 	
 	public String getUsername() {
-		return new String(name+iD);
+		return name + Integer.toString(iD);
 	}
 	
 	public void addCourse(Course newCourse) {
